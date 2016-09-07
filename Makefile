@@ -3,7 +3,7 @@
 #
 # Version
 #
-VERSION=1.6.1-arduino
+VERSION=1.6.1-littlebits
 WXVERSION=3.0
 
 #
