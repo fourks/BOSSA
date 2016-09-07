@@ -37,6 +37,8 @@
 #define ATSAMR_BOOTLOADER_SIZE               (0x00002000ul) // 8192 bytes, USB-CDC only
 #define ATSAMD_FLASH_ROW_PAGES               (4ul)           // 4 pages per row
 
+#define LB_ATSAMD_RESERVED_SIZE				 (0x00200000ul)	// 131072 bytes reserved for littleBits usage
+
 #define ATSAMD21J18A_NAME                    "ATSAMD21J18A"
 #define ATSAMD21J18A_CHIPID                  (0x10010000ul)  // DIE & REV bitfields masked in Samba::chipId()
 #define ATSAMD21J18A_FLASH_BASE              (0x00000000ul + ATSAMD_BOOTLOADER_SIZE)
@@ -50,7 +52,7 @@
 
 #define ATSAMD21G18A_NAME                    "ATSAMD21G18A"
 #define ATSAMD21G18A_CHIPID                  (0x10010005ul)  // DIE & REV bitfields masked in Samba::chipId()
-#define ATSAMD21G18A_FLASH_BASE              (0x00000000ul + ATSAMD_BOOTLOADER_SIZE)
+#define ATSAMD21G18A_FLASH_BASE              (0x00000000ul + LB_ATSAMD_RESERVED_SIZE)
 #define ATSAMD21G18A_FLASH_PAGE_SIZE         (64ul)
 #define ATSAMD21G18A_FLASH_PAGES             (4096ul)
 #define ATSAMD21G18A_FLASH_PLANES            (1ul)
