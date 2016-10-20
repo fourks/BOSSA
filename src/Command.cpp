@@ -164,6 +164,11 @@ Command::createFlash()
 {
     uint32_t chipId = _samba.chipId();
 
+	// reserved littleBits chip id
+	if(chipId == ATSAMD21G18A_LB_CHIPID) {
+		chipId = ATSAMD21G18A_CHIPID;
+	}
+	
     _flash = _flashFactory.create(_samba, chipId);
     if (_flash.get() == NULL)
     {
@@ -856,6 +861,12 @@ CommandPio::invoke(char* argv[], int argc)
     port = tolower(argv[1][1]);
 
     chipId = _samba.chipId();
+	
+	// reserved littleBits chip id
+	if(chipId == ATSAMD21G18A_LB_CHIPID) {
+		chipId = ATSAMD21G18A_CHIPID;
+	}
+	
     eproc = (chipId >> 5) & 0x7;
     arch = (chipId >> 20) & 0xff;
 

@@ -39,6 +39,8 @@
 #include "FlashFactory.h"
 #include "Flasher.h"
 
+#include "Devices.h"
+
 using namespace std;
 
 class BossaConfig
@@ -339,6 +341,12 @@ main(int argc, char* argv[])
         }
 
         uint32_t chipId = samba.chipId();
+		
+		// reserved littleBits chip id
+		if(chipId == ATSAMD21G18A_LB_CHIPID) {
+			chipId = ATSAMD21G18A_CHIPID;
+		}
+		
         printf( "Atmel SMART device 0x%08x found\n", chipId ) ;
 
         Flash::Ptr flash = flashFactory.create(samba, chipId);

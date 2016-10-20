@@ -52,6 +52,7 @@
 
 #define ATSAMD21G18A_NAME                    "ATSAMD21G18A"
 #define ATSAMD21G18A_CHIPID                  (0x10010005ul)  // DIE & REV bitfields masked in Samba::chipId()
+#define ATSAMD21G18A_LB_CHIPID				 (0x1001001ful)
 #define ATSAMD21G18A_FLASH_BASE              (0x00000000ul + LB_ATSAMD_RESERVED_SIZE)
 #define ATSAMD21G18A_FLASH_PAGE_SIZE         (64ul)
 #define ATSAMD21G18A_FLASH_PAGES             (4096ul)

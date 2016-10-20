@@ -117,7 +117,7 @@ Samba::init()
     //       answer correctly on some devices when used from UART.
     //       The reason is unknown.
     std::string ver = version();
-    std::size_t extIndex = ver.find("[Arduino:");
+    std::size_t extIndex = ver.find("[littleBits:");
     if (extIndex != string::npos) {
         extIndex += 9;
         while (ver[extIndex] != ']') {
@@ -182,6 +182,11 @@ Samba::init()
     {
         return true;
     }
+	// reserved device id for littleBits usage
+	else if (cid == ATSAMD21G18A_LB_CHIPID)
+	{
+		return true;
+	}
     else
     {
         if (_debug)
@@ -662,6 +667,7 @@ Samba::reset(void)
     {
     case ATSAMD21J18A_CHIPID:
     case ATSAMD21G18A_CHIPID:
+	case ATSAMD21G18A_LB_CHIPID:
     case ATSAMD21E18A_CHIPID:
     case ATSAMR21E18A_CHIPID:
         // http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0484c/index.html
